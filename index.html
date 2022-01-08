@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sample code verification Form</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+    <link
+      href="//cdn.auth0.com/styleguide/latest/lib/logos/img/favicon.png"
+      rel="shortcut icon"
+    />
+
+    <style>
+      body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      .jumbotron {
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      .jumbotron .btn {
+        padding: 14px 24px;
+        font-size: 21px;
+      }
+    </style>
+    <script type="text/javascript">
+      function setFormActionUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const verificationCode =
+          document.getElementById("verificationCode").value;
+        actionUrl = `/api/verify?${urlParams}&verificationCode=${verificationCode}`;
+        document["verify-form"].action = actionUrl;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Sample code verify Form</h1>
+
+        <p>
+          To continue, please enter the verification code you recieved via SMS
+          and click verify.
+        </p>
+
+        <form action="#" method="post" name="verify-form">
+          <div class="checkbox">
+            <label>
+              Verification code
+              <input
+                class="form-control"
+                type="text"
+                name="verificationCode"
+                id="verificationCode"
+                onchange="setFormActionUrl()"
+              />
+            </label>
+          </div>
+          <input type="submit" class="btn btn-lg btn-success" value="Verify" />
+        </form>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
