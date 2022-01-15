@@ -1,5 +1,7 @@
 # Actions Redirect: Mobile phone verification Example
 
+This code uses the same example as the [Actions Redirect: Simple Consent Form Example](https://github.com/dylanswartz/actions-consent-form-example) and the same idea to implement the mobile phone verification.
+
 This sample demonstrates a minimal implementation of the `redirect` protocol. It contains an Auth0 [Action](https://auth0.com/docs/customize/actions) that will redirect the user to a simple form so they can enter a verification code recieved by SMS.
 
 When the user enter the code and clicks the **Verify** button, they are then redirected back to Auth0 to complete the authentication flow. On future logins they will no longer be prompted since the code verification action results are stored in their user profile.
